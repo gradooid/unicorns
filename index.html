@@ -9,11 +9,16 @@
 </head>
 <body>
 
-
+<button type="button" onclick="cornify_add()">Add 🦄</button>
+<button type="button" onclick="cornify_countreset()">Delete all 🦄</button>
 
 <script>
 const pressed = [];
 const secretCode = 'licky';
+
+document.addEventListener('DOMContentLoaded', function() {
+  cornify_count = 0;
+});
 
 window.addEventListener('keydown', function(e) {
   pressed.push(e.key);
@@ -22,9 +27,21 @@ window.addEventListener('keydown', function(e) {
   if ( pressed.join('').includes(secretCode) ) {
     cornify_add();
   }
-  console.log(pressed)
 });
 
+function cornify_countreset() {
+  cornify_count = 0;
+  document.querySelector('p').remove();
+
+  const unicorn = document.querySelectorAll('div');
+
+  unicorn.forEach((div) => {
+    div.remove();
+  });
+};
+
+
+// https://gradooid.github.io/unicorns/
 </script>
 </body>
 </html>
